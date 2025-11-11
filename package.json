@@ -1,0 +1,14 @@
+{
+  "name": "telepathic-archive",
+  "version": "1.0.0",
+  "description": "Rhine–Taft Telepathic Reading Study Archive (1972) - A static site for a casual social mentalism effect",
+  "type": "module",
+  "scripts": {
+    "lint": "node scripts/lint-big-words.mjs",
+    "build": "node scripts/build-clean.mjs",
+    "validate": "npm run lint && npm run build && echo '✅ All validation passed'"
+  },
+  "keywords": ["mentalism", "moabt", "static-site"],
+  "author": "",
+  "license": "MIT"
+}
