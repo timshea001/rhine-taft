@@ -5,11 +5,11 @@ Static site for a casual social mentalism effect. The first article opened per t
 ## Structure
 - `/index.html` homepage with study summary + article grid
 - `/moabt/` first-open variants
-- `/clean/` auto-generated clean variants
+- `/articles/` auto-generated standard variants
 - `/assets/archive.css` minimal styling
 - `/scripts/logic.js` session-based routing
 - `/scripts/lint-big-words.mjs` validator for `/moabt/*`
-- `/scripts/build-clean.mjs` clean builder
+- `/scripts/build-clean.mjs` article builder
 
 ## Mother Of All Book Tests (MOABT) allowed long words
 Numerous · Occasions · Throughout · Effectively · Constantly · Advantages · Recommended · Different · Suggested

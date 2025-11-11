@@ -30,14 +30,14 @@ function getCookie(name) {
     const anchors = document.querySelectorAll('a[data-slug]');
     anchors.forEach(a => {
       const slug = a.getAttribute('data-slug');
-      const target = (used ? "clean/" : "moabt/") + slug + ".html";
+      const target = (used ? "articles/" : "moabt/") + slug + ".html";
       a.setAttribute("href", target);
     });
     return;
   }
 
   if (isMoabt) {
-    // First-time MOABT visit sets state; otherwise redirect to clean
+    // First-time MOABT visit sets state; otherwise redirect to articles
     if (!used) {
       if (ssOK) {
         sessionStorage.setItem("moabtUsed", "1");
@@ -47,8 +47,8 @@ function getCookie(name) {
       return; // allow viewing MOABT once
     } else {
       const slug = path.split('/').pop(); // aN.html
-      const cleanURL = "../clean/" + slug + (ssOK ? "" : "?v=clean");
-      location.replace(cleanURL);
+      const articlesURL = "../articles/" + slug + (ssOK ? "" : "?v=clean");
+      location.replace(articlesURL);
       return;
     }
   }

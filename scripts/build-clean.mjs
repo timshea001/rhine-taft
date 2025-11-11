@@ -2,7 +2,7 @@ import fs from 'fs/promises';
 import path from 'path';
 
 const DIR_MOABT = './moabt';
-const DIR_CLEAN = './clean';
+const DIR_CLEAN = './articles';
 await fs.mkdir(DIR_CLEAN, { recursive: true });
 
 const MAP = new Map(Object.entries({

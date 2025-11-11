@@ -66,8 +66,8 @@ telepathic-archive/
 ├── index.html           # Homepage with article grid
 ├── moabt/              # First-view articles (MOABT constrained)
 │   ├── a1.html         # Uses only 9 allowed long words
-│   └── a2-a12.html     # Clean-friendly (no MOABT words)
-├── clean/              # Auto-generated clean variants
+│   └── a2-a12.html     # Standard prose (no MOABT words)
+├── articles/           # Auto-generated standard variants
 │   └── a1-a12.html     # MOABT words replaced
 ├── scripts/
 │   ├── logic.js        # Session-based routing
@@ -83,8 +83,8 @@ telepathic-archive/
 
 1. **First visit**: User sees MOABT version (moabt/a1.html) with constrained vocabulary
 2. **Session set**: JavaScript sets sessionStorage flag
-3. **Subsequent views**: All article links point to clean versions
-4. **Redirect protection**: Direct access to MOABT URLs after session set → redirects to clean
+3. **Subsequent views**: All article links point to standard versions
+4. **Redirect protection**: Direct access to MOABT URLs after session set → redirects to articles
 
 ### Mother Of All Book Tests (MOABT) - Allowed Words (9 total)
 
@@ -97,14 +97,14 @@ Numerous, Occasions, Throughout, Effectively, Constantly, Advantages, Recommende
 1. Edit `moabt/a1.html`
 2. Only use 5-letter words OR the 9 allowed words for 6+ letter words
 3. Run `npm run lint` to validate
-4. Run `npm run build` to regenerate `clean/a1.html`
+4. Run `npm run build` to regenerate `articles/a1.html`
 
 ### Modifying Other Articles (a2-a12)
 
 1. Edit `moabt/aN.html` (where N = 2-12)
 2. Avoid using the 9 MOABT words
 3. Run `npm run lint` to validate
-4. Run `npm run build` to regenerate clean versions
+4. Run `npm run build` to regenerate article versions
 
 ## Browser Compatibility
 
@@ -124,8 +124,8 @@ Numerous, Occasions, Throughout, Effectively, Constantly, Advantages, Recommende
 ## Testing Checklist
 
 - [ ] Fresh tab → click article → lands on `/moabt/aN.html`
-- [ ] Session set → all links point to `/clean/`
-- [ ] Direct moabt URL after session → redirects to clean
+- [ ] Session set → all links point to `/articles/`
+- [ ] Direct moabt URL after session → redirects to articles
 - [ ] Multiple tabs → independent sessions
 - [ ] Incognito mode → cookie fallback works
 - [ ] No JS → noscript message shows
