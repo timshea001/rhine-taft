@@ -24,7 +24,16 @@ for (const f of await fs.readdir(DIR_MOABT)) {
 
   let html = await fs.readFile(path.join(DIR_MOABT, f), 'utf8');
   for (const [from, to] of MAP) {
-    html = html.replace(new RegExp(`\\b${from}\\b`, 'g'), to);
+    const pattern = new RegExp(`\\b${from}\\b`, 'gi');
+    html = html.replace(pattern, match => {
+      if (match === match.toUpperCase()) {
+        return to.toUpperCase();
+      }
+      if (match[0] === match[0].toUpperCase()) {
+        return to[0].toUpperCase() + to.slice(1);
+      }
+      return to;
+    });
   }
   await fs.writeFile(path.join(DIR_CLEAN, f), html);
   count++;
