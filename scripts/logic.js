@@ -19,7 +19,7 @@ function getCookie(name) {
 
 (function init() {
   const path = location.pathname;
-  const isIndex = path === "/" || path.endsWith("/index.html");
+  const isIndex = path === "/" || path.endsWith("/index.html") || path.endsWith("/");
   const isMoabt = path.includes("/moabt/");
   const ssOK = supportsSessionStorage();
   const usedSS = ssOK && sessionStorage.getItem("moabtUsed") === "1";
@@ -30,7 +30,7 @@ function getCookie(name) {
     const anchors = document.querySelectorAll('a[data-slug]');
     anchors.forEach(a => {
       const slug = a.getAttribute('data-slug');
-      const target = (used ? "/clean/" : "/moabt/") + slug + ".html";
+      const target = (used ? "clean/" : "moabt/") + slug + ".html";
       a.setAttribute("href", target);
     });
     return;
@@ -47,7 +47,7 @@ function getCookie(name) {
       return; // allow viewing MOABT once
     } else {
       const slug = path.split('/').pop(); // aN.html
-      const cleanURL = "/clean/" + slug + (ssOK ? "" : "?v=clean");
+      const cleanURL = "../clean/" + slug + (ssOK ? "" : "?v=clean");
       location.replace(cleanURL);
       return;
     }
