@@ -52,4 +52,17 @@ function getCookie(name) {
       return;
     }
   }
+
+  // Hidden reset functionality
+  const resetLink = document.getElementById('reset-link');
+  if (resetLink) {
+    resetLink.addEventListener('click', function(e) {
+      e.preventDefault();
+      if (ssOK) {
+        sessionStorage.removeItem('moabtUsed');
+      }
+      document.cookie = 'moabtUsed=; path=/; max-age=0';
+      location.reload();
+    });
+  }
 })();
